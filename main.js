@@ -34,7 +34,7 @@ var brainObj = null;
 var vecBrain = [0, 1, 0];
 
 gltfLoader.load(
-  'orange brain.glb',
+  'bunny.glb',
   (gltf) =>
   {
       brainObj = gltf.scene.children[0];
