@@ -115,6 +115,10 @@ gltfLoader.load(
   }
 )
 
+
+
+
+
 gltfLoader.load(
   'wc1.glb',
   (gltf) =>
@@ -138,7 +142,7 @@ const plight = new THREE.PointLight(0xffffff, 10)
 scene.add(plight)
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 // const aspectRatio = sizes.width / sizes.height
 // const camera = new THREE.OrthographicCamera(- 1 * aspectRatio, 1 * aspectRatio, 1, - 1, 0.1, 100)
 camera.position.x = vecBrain[0];
@@ -197,9 +201,22 @@ const tick = () =>
     if (brainObj) brainObj.rotation.y = elapsedTime * 0.1;
     if (brainObj) brainObj.rotation.z = elapsedTime * 0.1;
 
+    if (brainObj) brainObj.position.x = vecBrain[1];
+    camera.position.z = vecBrain[1] + 2.3;
+    // camera.rotation.z = vecBrain[1] + 2.3;
+    // camera.lookAt(vecBrain[0], vecBrain[1], vecBrain[2]);
+
+
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
 }
+
+window.addEventListener('keydown', function(w){
+    vecBrain[1] -= 0.01;
+    console.log(vecBrain[1]);
+});
+
+
 
 tick()
