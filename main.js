@@ -111,7 +111,6 @@ const tick = () =>
 
     if (brainObj) brainObj.position.x = vecBrain[1];
     camera.position.z = vecBrain[1] + 2.3;
-    // camera.rotation.z = vecBrain[1] + 2.3;
     camera.lookAt(vecBrain[0], vecBrain[1], vecBrain[2]);
 
 
@@ -125,7 +124,5 @@ window.addEventListener('keydown', function(w){
     vecBrain[1] -= 0.01;
     console.log(vecBrain[1]);
 });
-
-
 
 tick()
